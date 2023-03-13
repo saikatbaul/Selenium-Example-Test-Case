@@ -16,7 +16,7 @@ public class E1 {
 		
 		driver.findElement(By.name("uname")).sendKeys("saikat");
 		
-		driver.findElement(By.name("password")).sendKeys("1212");
+		driver.findElement(By.name("password")).sendKeys("4444");
 		
 		driver.findElement(By.name("submit")).click();
 		
