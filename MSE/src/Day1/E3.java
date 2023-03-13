@@ -2,19 +2,21 @@ package Day1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class E3 {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\libs\\selenium-jars\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
 		int n = 15;
 		driver.get("https://crudphpsaikat.000webhostapp.com/update.php?id="+n);
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		WebElement txtbx_name = driver.findElement(By.name("name"));
 		txtbx_name.sendKeys(Keys.chord(Keys.CONTROL, "a"), "Mr Saikat Baul");

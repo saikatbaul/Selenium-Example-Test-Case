@@ -1,17 +1,19 @@
 package Day1;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class E4 {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\libs\\selenium-jars\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
 		driver.get("https://crudphpsaikat.000webhostapp.com/list.php");
 		
-		Thread.sleep(800);
+		Thread.sleep(1000);
 		
 		driver.findElement(By.name("out")).click();
 		
@@ -26,8 +28,8 @@ public class E4 {
 		{
 			System.out.println("Fail");
 		}
-		driver.close();
-		driver.quit();
+//		driver.close();
+//		driver.quit();
 	}
 }
 

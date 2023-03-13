@@ -1,17 +1,19 @@
 package Day1;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class E5 {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\libs\\selenium-jars\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		int n = 45;
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
+		int n = 55;
 		driver.get("https://crudphpsaikat.000webhostapp.com/delete.php?id="+n);
 		
-		Thread.sleep(800);
+		Thread.sleep(1000);
 		
 		String acting_url = driver.getCurrentUrl();
 		String desired_url = "https://crudphpsaikat.000webhostapp.com/list.php";
@@ -24,7 +26,8 @@ public class E5 {
 		{
 			System.out.println("Fail");
 		}
-		driver.close();
-		driver.quit();
+//		driver.close();
+//		driver.quit();
 	}
 }
+
